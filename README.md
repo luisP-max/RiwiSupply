@@ -58,7 +58,7 @@ The MER was designed in MySQL Workbench and exported as PDF (attached). It uses:
 1. Open pgAdmin 4.
 2. Connect to your PostgreSQL server.
 3. Right-click **Databases** > Create > Database.
-4. Name it: `RiwiSupply`
+4. Name it: `bd_luis_pina_magdalena`
 5. Click OK.
 6. Right-click the new database > **Query Tool**.
 7. Copy and execute the DDL script below.
