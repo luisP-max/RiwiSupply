@@ -79,41 +79,43 @@ Each query is explained with the exact business requirement it meets.
 
 ---
 
-## MER Design (Textual Representation)
+## Database Design & Implementation
 
-### Entities
-- **riwi_ciudad** (City)
-  - id_ciudad (PK, SERIAL)
-  - nombre_ciudad (VARCHAR(100) NOT NULL)
+### ERD Design (Textual Representation)
 
-- **riwi_categoria** (Category)
-  - id_categoria (PK, SERIAL)
-  - nombre_categoria (VARCHAR(100) NOT NULL)
+#### Entities & Attributes
+- **riwi_city** (City)
+  - `city_id` (PK, SERIAL)
+  - `city_name` (VARCHAR(100) NOT NULL)
 
-- **riwi_proveedor** (Supplier)
-  - id_proveedor (PK, SERIAL)
-  - nombre_proveedor (VARCHAR(150) NOT NULL)
-  - ciudad_id (FK, INT NOT NULL)
+- **riwi_category** (Category)
+  - `category_id` (PK, SERIAL)
+  - `category_name` (VARCHAR(100) NOT NULL)
 
-- **riwi_bodega** (Warehouse)
-  - id_bodega (PK, SERIAL)
-  - nombre_bodega (VARCHAR(100) NOT NULL)
-  - ciudad_id (FK, INT NOT NULL)
+- **riwi_supplier** (Supplier)
+  - `supplier_id` (PK, SERIAL)
+  - `supplier_name` (VARCHAR(150) NOT NULL)
+  - `city_id` (FK, INT NOT NULL)
 
-- **riwi_producto** (Product)
-  - id_producto (PK, SERIAL)
-  - nombre_producto (VARCHAR(150) NOT NULL)
-  - categoria_id (FK, INT NOT NULL)
+- **riwi_warehouse** (Warehouse)
+  - `warehouse_id` (PK, SERIAL)
+  - `warehouse_name` (VARCHAR(100) NOT NULL)
+  - `city_id` (FK, INT NOT NULL)
 
-- **riwi_movimiento_inventario** (Inventory Movement)
-  - id_movimiento (PK, SERIAL)
-  - producto_id (FK, INT NOT NULL)
-  - bodega_id (FK, INT NOT NULL)
-  - fecha_movimiento (DATE NOT NULL)
-  - cantidad (DECIMAL(10,2) NOT NULL)
-  - tipo_movimiento (ENUM('IN', 'OUT') NOT NULL)
-  - precio_unitario (DECIMAL(10,2) NOT NULL)
-  - orden_compra (VARCHAR(20))
+- **riwi_product** (Product)
+  - `product_id` (PK, SERIAL)
+  - `product_name` (VARCHAR(150) NOT NULL)
+  - `category_id` (FK, INT NOT NULL)
+
+- **riwi_inventory_movement** (Inventory Movement)
+  - `movement_id` (PK, SERIAL)
+  - `product_id` (FK, INT NOT NULL)
+  - `warehouse_id` (FK, INT NOT NULL)
+  - `movement_date` (DATE NOT NULL)
+  - `quantity` (DECIMAL(10,2) NOT NULL)
+  - `movement_type` (ENUM('IN', 'OUT') NOT NULL)
+  - `unit_price` (DECIMAL(10,2) NOT NULL)
+  - `purchase_order` (VARCHAR(20))
 
 **Relationships (all 1:N):**
 supplier → city_id
