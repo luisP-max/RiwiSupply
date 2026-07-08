@@ -79,7 +79,7 @@ Each query is explained with the exact business requirement it meets.
 
 ---
 
-## MER Design (Textual Representation - pgAdmin friendly)
+## MER Design (Textual Representation)
 
 ### Entities
 - **riwi_ciudad** (City)
